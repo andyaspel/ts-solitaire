@@ -3,7 +3,7 @@
 class CreateDeck {
   constructor() {
     this.deck = [];
-    this.suitsDeck = [];
+    this.shuffledDeck = [];
   }
 
   buildDeck() {
@@ -35,17 +35,17 @@ class CreateDeck {
         });
       });
     });
-    return this.deck;
+    return [...this.deck];
   }
+
   shuffleDeck(times = 1) {
     if (this.deck.length === 0) {
       this.buildDeck();
     }
-    const shuffle = this.deck;
+    const shuffle = [...this.deck];
     for (let i = 0; i < times; i++) {
-      console.log(i);
+      this.splitDeckShuffle();
       for (let j = shuffle.length - 1; j > 0; j--) {
-        console.log(j);
         const swapIndex = Math.floor(Math.random() * (j + 1));
         const currentCard = shuffle[j];
         const cardToSwap = shuffle[swapIndex];
@@ -53,30 +53,30 @@ class CreateDeck {
         shuffle[swapIndex] = currentCard;
       }
     }
-    return this.deck;
+    this.shuffledDeck = shuffle;
+    return this.shuffledDeck;
   }
 
-  splitDeckShuffle() {
+  splitDeckShuffle(splitPosition = 26) {
     if (this.deck.length === 0) {
       this.buildDeck();
     }
     let topDeck = [];
     let bottomDeck = [];
-    const newDeck = this.deck;
-    let index = 0;
     for (let j = 0; j < this.deck.length; j++) {
-      if (j < 26) {
-        this.deck[j].index = ++index;
+      if (j < splitPosition) {
+        this.deck[j].pos = (j + 1) * 2;
         topDeck.push(this.deck[j]);
-      } else if (j >= 26) {
-        this.deck[j].index = ++index - 26;
+      } else {
+        this.deck[j].pos = topDeck[j - 26].pos - 1;
         bottomDeck.push(this.deck[j]);
       }
     }
-    this.suitsDeck = [...bottomDeck, ...topDeck];
-    console.log(this.suitsDeck, newDeck);
-    return this.suitsDeck;
-   
+    this.shuffledDeck = [...bottomDeck, ...topDeck];
+    this.shuffledDeck.sort(function (a, b) {
+      return a.pos > b.pos ? 1 : -1;
+    });
+    return this.shuffledDeck;
   }
 }
 

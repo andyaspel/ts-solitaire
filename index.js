@@ -6,8 +6,8 @@ let test = new CreateDeck();
 let test3 = new Rules(test);
 test3.test();
 console.log(test3);
-// test.shuffleDeck(2);
-test.splitDeckShuffle();
+test.shuffleDeck(3);
+// test.splitDeckShuffle();
 // test.buildDeck();
 console.log(test);
 
