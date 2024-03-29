@@ -1,0 +1,10 @@
+How to store state?
+Give each card a position ID (after shuffle).
+Give each column an ID.
+Give each card a turned boolean.
+Give each card a colour code.
+Use arrays to help control columns state.
+Use an array to control history.
+
+
+

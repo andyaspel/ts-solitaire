@@ -1,0 +1,109 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-family: system-ui, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  background-image: linear-gradient(
+    45deg,
+    lch(35% 150 60 / 0.2),
+    lch(34% 120 10 / 0.19),
+    lch(35% 150 60 / 0.18)
+  );
+}
+
+header {
+  display: flex;
+  padding: 0.61em 1.2em;
+  flex-direction: row;
+  justify-content: space-between;
+  background: rgba(243, 4, 4, 0.642);
+  border-bottom: solid 0.3em rgb(38, 2, 1);
+}
+
+header > img {
+  display: block;
+  padding: 0.3em;
+  max-width: 5em;
+  box-shadow: 1px 2px 1px 1px rgba(14, 3, 3, 0.6),
+    4px 2px 13px rgba(65, 1, 1, 0.803);
+  align-self: flex-start;
+}
+
+header > h1 {
+  font-size: 5em;
+  color: #f6c7b7;
+  letter-spacing: 0.4ch;
+  text-shadow: 1px 5px 7px #000;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+#test23 {
+  width: 150em;
+  height: 40em;
+  background-image: linear-gradient(
+    45deg,
+    lch(35% 150 100),
+    lch(44% 200 150),
+    lch(35% 150 100)
+  );
+  border: solid 3px rgb(18, 46, 26);
+  box-shadow: -2px 8px 7px 2px rgba(1, 65, 17, 0.193),
+  1px 12px 5px 23px rgba(175, 20, 20, 0.062);
+  border-radius: 4em;
+  padding:1em 3.5em;
+}
+#test23 >img {
+  box-shadow: 1px 2px 1px 1px rgba(14, 3, 3, 0.6),
+    4px 2px 13px rgba(65, 1, 1, 0.803);
+    border-radius: 1em;
+    width: 6rem;
+}
+
+/* QUERIES */
+
+@media screen and (max-width: 820px) {
+  header > h1 {
+    font-size: 4em;
+    /* color: #f6c7b7; */
+    letter-spacing: 0.3ch;
+    /* text-shadow: 1px 2px 0 #000; */
+  }
+  header > img {
+    max-width: 4em;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  header > h1 {
+    font-size: 3em;
+    /* color: #f6c7b7; */
+    letter-spacing: 0.2ch;
+    /* text-shadow: 1px 2px 0 #000; */
+  }
+  header > img {
+    max-width: 3em;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  header > h1 {
+    font-size: 2em;
+    /* color: #f6c7b7; */
+    letter-spacing: 0.2ch;
+    /* text-shadow: 1px 2px 0 #000; */
+  }
+  header > img {
+    max-width: 2.5em;
+  }
+}
