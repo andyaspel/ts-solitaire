@@ -66,8 +66,8 @@ section {
 #test23 >img {
   box-shadow: 1px 2px 1px 1px rgba(14, 3, 3, 0.6),
     4px 2px 13px rgba(65, 1, 1, 0.803);
-    border-radius: 1em;
-    width: 6rem;
+    border-radius: 4px;
+    width:4.5rem;
 }
 
 /* QUERIES */
