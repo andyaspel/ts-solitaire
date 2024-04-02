@@ -27,19 +27,19 @@ export enum Turned {
 }
 //
 export type Card = {
-  ["title"]: String;
-  ["colour"]: Colour;
-  ["table_position"]: Array<Column>;
-  ["turned"]: Turned;
+  title: String;
+  colour: Colour;
+  table_row: Array<Column>;
+  turned: Turned;
 };
 //
-export const image_src: String = "/images/";
-export const deck: Array<Card> = [];
-export const back: String = "/images/C1.svg";
+export let image_src: String = "/images/";
+export const Deck: Array<Card> = [];
+export let back: String = "/images/C1.svg";
 //
 create_cards();
-deck.forEach((_) => {
-  shuffle_cards(deck);
+Deck.forEach((_) => {
+  shuffle_cards(Deck);
 });
 //
 function create_cards(): void {
@@ -67,28 +67,28 @@ function create_cards(): void {
       } else {
         colour = Colour.Red;
       }
-      deck.push({
+      let obj = Object.assign({
         title: face_values[j] + suit_values[i],
         colour: colour,
-        table_position: [0],
-        turned: Turned.False,
+        table_row: [0],
+        turned: false,
       });
+      Deck.push(obj);
     }
   }
 }
 //
 function shuffle_cards(cards: Array<Card>): void {
   let swap = cards[0];
-  cards.forEach((_, index) => {
-    let random: number = Math.floor(Math.random() * 52);
-    while (index === random) {
-      random = Math.floor(Math.random() * 52);
+  const max: number = 52;
+  cards.forEach((_, i) => {
+    let random: number = Math.floor(Math.random() * max);
+    while (i === random) {
+      random = Math.floor(Math.random() * max);
     }
-    swap = cards[index];
-    cards[index] = cards[random];
+    swap = cards[i];
+    cards[i] = cards[random];
     cards[random] = swap;
   });
 }
-// add shuffle + deck_position to Card object(mabe more props later??)
-// build board structure:- deck,drawn,1,2,3,4,5,6,7,S,D.C.H sections
-// design functionsfor computer to play game
+//

@@ -1,7 +1,7 @@
 "use strict";
 //
-import { Card, Column, deck } from "./Card.ts";
-
+import { Column, Deck } from "./Card.ts";
+import   "./Table.ts";
 //
 let arr: (typeof Column)[] = [];
 [Column].forEach((el) => {
@@ -10,16 +10,15 @@ let arr: (typeof Column)[] = [];
 //
 console.log("+++++++++++");
 console.log(arr);
-deck.forEach((card) => validateCard(card));
-console.log(deck);
-
+// deck.forEach((card) => validateCard(card));
+console.log(Deck);
 console.log("+++++++++++");
 //
-function validateCard(card: Card): Boolean | undefined {
-  if (card) {
-    // console.log(card);
-    return true;
-  }
-  throw new Error("Card is invalid");
-}
+// function validateCard(card: Card): Boolean | undefined {
+//   if (card) {
+//     // console.log(card);
+//     return true;
+//   }
+//   throw new Error("Card is invalid");
+// }
 //
